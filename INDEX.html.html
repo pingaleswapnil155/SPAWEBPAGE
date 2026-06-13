@@ -1,0 +1,592 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Swapnil Pingale & Associates | Health & Life Insurance</title>
+  <!-- Google Fonts & simple reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9fafc;
+      color: #1e2a3e;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header / Nav */
+    .navbar {
+      background: white;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(2px);
+      background: rgba(255,255,255,0.96);
+    }
+    .nav-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      flex-wrap: wrap;
+    }
+    .logo h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #1e4a76, #2c7da0);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.3px;
+    }
+    .logo span {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #1e6f3f;
+      display: block;
+      margin-top: 4px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #2c3e50;
+      margin-left: 32px;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .nav-links a:hover {
+      color: #2c7da0;
+    }
+    @media (max-width: 700px) {
+      .nav-flex {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .nav-links a {
+        margin: 0 16px;
+      }
+    }
+
+    /* Buttons & common */
+    .btn-primary {
+      background: #1e6f3f;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.25s ease;
+      font-size: 1rem;
+      display: inline-block;
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .btn-primary:hover {
+      background: #0f5a34;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px -12px rgba(30,111,63,0.4);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #2c7da0;
+      color: #2c7da0;
+      padding: 10px 26px;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: 0.2s;
+      cursor: pointer;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .btn-outline:hover {
+      background: #2c7da0;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 70px 0 60px;
+      background: linear-gradient(120deg, #ffffff 40%, #eef5f9 100%);
+    }
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .hero-content {
+      flex: 1;
+    }
+    .hero-badge {
+      background: #e2f0e8;
+      color: #1e6f3f;
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #0a2942;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #3a546d;
+      margin-bottom: 32px;
+      max-width: 500px;
+    }
+    .hero-stats {
+      flex: 0.8;
+      background: white;
+      border-radius: 32px;
+      padding: 30px;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .hero-stats .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #1e6f3f;
+    }
+    @media (max-width: 800px) {
+      .hero-grid { flex-direction: column; }
+      .hero-content h1 { font-size: 2.3rem; }
+    }
+
+    /* Section shared */
+    section {
+      padding: 70px 0;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-align: center;
+      color: #0e2a3b;
+    }
+    .section-sub {
+      text-align: center;
+      color: #4f6f8f;
+      margin-bottom: 48px;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Services cards */
+    .services-grid {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .service-card {
+      background: white;
+      border-radius: 28px;
+      padding: 32px 28px;
+      flex: 1;
+      min-width: 260px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.12);
+      border-color: #cbdde9;
+    }
+    .card-icon {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
+    .service-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    .service-card ul {
+      margin-top: 18px;
+      padding-left: 20px;
+      color: #2c4c6c;
+    }
+    .service-card li {
+      margin: 10px 0;
+    }
+    .insurer-logos {
+      margin-top: 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #1e6f3f;
+      background: #f0f7f2;
+      padding: 8px 12px;
+      border-radius: 28px;
+      display: inline-block;
+    }
+
+    /* Why choose me (benefits) */
+    .why-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .benefit-item {
+      background: white;
+      padding: 24px 20px;
+      border-radius: 24px;
+      flex: 1 1 200px;
+      text-align: center;
+      transition: 0.2s;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.03);
+      border-bottom: 3px solid #2c7da0;
+    }
+    .benefit-item:hover {
+      background: #ffffff;
+      transform: scale(1.02);
+    }
+    .benefit-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    .benefit-item h4 {
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    /* Contact + Form */
+    .contact-wrap {
+      background: white;
+      border-radius: 40px;
+      padding: 40px;
+      box-shadow: 0 20px 30px -15px rgba(0,0,0,0.05);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    .contact-info {
+      flex: 1;
+    }
+    .contact-form {
+      flex: 1;
+    }
+    .contact-info p {
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.05rem;
+      flex-wrap: wrap;
+    }
+    .contact-info a {
+      color: #1e6f3f;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .whatsapp-btn {
+      background: #25D366;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 25px;
+      border-radius: 40px;
+      font-weight: 600;
+      margin-top: 20px;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .whatsapp-btn:hover {
+      background: #1da15a;
+      transform: scale(1.02);
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 30px;
+      border: 1px solid #cfdfed;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: 0.2s;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #2c7da0;
+      box-shadow: 0 0 0 3px rgba(44,125,160,0.2);
+    }
+    button[type="submit"] {
+      background: #1e6f3f;
+      width: 100%;
+      padding: 14px;
+      border: none;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 40px;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button[type="submit"]:hover {
+      background: #0f5a34;
+    }
+    .footer {
+      background: #0e2a3b;
+      color: #bbd4ec;
+      text-align: center;
+      padding: 28px 0;
+      font-size: 0.9rem;
+    }
+
+    .address-detail {
+      font-size: 0.95rem;
+      line-height: 1.4;
+      margin-top: 4px;
+      color: #2c3e50;
+    }
+    .badge-partner {
+      background: #eef2fa;
+      border-radius: 40px;
+      padding: 8px 16px;
+      font-size: 0.8rem;
+      display: inline-block;
+      margin-top: 12px;
+    }
+    @media (max-width: 700px) {
+      .contact-wrap { flex-direction: column; padding: 28px; }
+      .section-title { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="navbar">
+  <div class="container nav-flex">
+    <div class="logo">
+      <h2>SWAPNIL PINGALE & ASSOCIATES</h2>
+      <span>💼 IRDAI Certified | Health & Life Insurance Specialists</span>
+    </div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <div class="hero-badge">🔹 Pune's Most Trusted Insurance Advisor</div>
+      <h1>Swapnil Pingale & Associates<br>Secure What Matters Most</h1>
+      <p>Expert guidance in Health Insurance (Care, Manipal Cigna, ICICI Lombard) & Life Insurance (BAJAJ LIFE, LIC). Claim support and transparent advice.</p>
+      <a href="#contact" class="btn-primary" style="margin-right: 16px;">📞 Get a Quote</a>
+      <a href="#services" class="btn-outline">Explore Plans</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-number">500+</div>
+      <p>Happy Families Covered</p>
+      <div class="stat-number" style="margin-top: 16px;">98%</div>
+      <p>Claim Settlement Support</p>
+      <div class="stat-number" style="margin-top: 16px;">12+</div>
+      <p>Years of Excellence</p>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section: Health & Life Insurance with specific insurers -->
+<section id="services">
+  <div class="container">
+    <h2 class="section-title">Insurance Solutions Tailored For You</h2>
+    <div class="section-sub">SWAPNIL PINGALE & ASSOCIATES partners with India's leading insurers to offer you the best plans.</div>
+    <div class="services-grid">
+      <!-- Health Insurance Card -->
+      <div class="service-card">
+        <div class="card-icon">🏥❤️</div>
+        <h3>Health Insurance</h3>
+        <p>Cashless treatment, critical illness cover, family floater & more. We bring you top-tier health partners.</p>
+        <ul>
+          <li>✅ Care Insurance</li>
+          <li>✅ Manipal Cigna</li>
+          <li>✅ ICICI Lombard</li>
+          <li>✅ Cashless across 7000+ hospitals</li>
+        </ul>
+        <div class="insurer-logos">⭐ Preferred Partner: Care | Manipal Cigna | ICICI Lombard</div>
+      </div>
+      <!-- Life Insurance Card -->
+      <div class="service-card">
+        <div class="card-icon">🛡️👨‍👩‍👧</div>
+        <h3>Life Insurance</h3>
+        <p>Secure your family’s financial future with trusted life insurers. Term plans, savings, and retirement solutions.</p>
+        <ul>
+          <li>✅ BAJAJ LIFE – High claim settlement ratio</li>
+          <li>✅ LIC – India's most trusted brand</li>
+          <li>✅ Riders: Accidental, Critical Illness</li>
+          <li>✅ Return of premium & tax benefits u/s 80C</li>
+        </ul>
+        <div class="insurer-logos">📌 Authorized Advisor: BAJAJ LIFE | LIC</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section id="why" style="background: #f2f7fc;">
+  <div class="container">
+    <h2 class="section-title">Why Choose Swapnil Pingale & Associates?</h2>
+    <div class="section-sub">Advisory built on integrity, transparency, and deep expertise with top insurers.</div>
+    <div class="why-grid">
+      <div class="benefit-item"><div class="benefit-icon">🤝</div><h4>Claim Assistance</h4><p>End-to-end support from filing to settlement. We stand by you.</p></div>
+      <div class="benefit-item"><div class="benefit-icon">🏆</div><h4>Top Insurers</h4><p>Care, Manipal Cigna, ICICI Lombard, BAJAJ LIFE, LIC & more.</p></div>
+      <div class="benefit-item"><div class="benefit-icon">⏱️</div><h4>Free Consultation</h4><p>Unbiased advice, no hidden charges. Compare before you buy.</p></div>
+      <div class="benefit-item"><div class="benefit-icon">📍</div><h4>Local Presence</h4><p>Chandan Nagar, Next to AADESH GRAPHICS — always available for personal meets.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section + Form + WhatsApp with exact details (email & address updated) -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">Let’s Plan Your Protection</h2>
+    <div class="section-sub">Reach out to SWAPNIL PINGALE & ASSOCIATES — Get your custom insurance quote today.</div>
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <h3 style="margin-bottom: 20px; font-size: 1.7rem;">📞 Connect With Us</h3>
+        <p>📱 <strong>Call / WhatsApp:</strong> <a href="tel:+919922127600">+91 99221 27600</a></p>
+        <p>✉️ <strong>Email:</strong> <a href="mailto:Pingale.swapnil155@gmail.com">Pingale.swapnil155@gmail.com</a></p>
+        <p>📍 <strong>Office Address:</strong> Chandan Nagar, Next to AADESH GRAPHICS, Pune - 411014</p>
+        <p>🏢 <strong>Firm:</strong> SWAPNIL PINGALE AND ASSOCIATES</p>
+        <div class="address-detail">
+          🏘️ Landmark: Close to AADESH GRAPHICS, easy access from Kharadi bypass.
+        </div>
+        <a href="https://wa.me/919922127600?text=Hi%2C%20I%20need%20help%20with%20Health%20%26%20Life%20Insurance%20plans%20from%20Swapnil%20Pingale%20Associates" target="_blank" class="whatsapp-btn">
+          💬 Chat on WhatsApp → Get Instant Quote
+        </a>
+        <p style="margin-top: 20px; font-size: 0.9rem; color: #2c7da0;">⭐ 4.9 Rating ★ Trusted by 500+ families in Pune & PCMC</p>
+        <div class="badge-partner">✔️ Authorised partner: Care Insurance | Manipal Cigna | ICICI Lombard | BAJAJ LIFE | LIC</div>
+      </div>
+      <div class="contact-form">
+        <h3 style="margin-bottom: 20px;">📝 Request a Callback</h3>
+        <form id="advisorForm">
+          <div class="form-group">
+            <input type="text" id="name" placeholder="Full Name" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" id="phone" placeholder="Mobile Number" required>
+          </div>
+          <div class="form-group">
+            <textarea rows="3" id="message" placeholder="Tell me about your insurance needs (Health / Life / Both)"></textarea>
+          </div>
+          <button type="submit" id="submitBtn">📩 Send & Get Quote</button>
+          <p id="formFeedback" style="margin-top: 12px; font-size:0.85rem; text-align:center;"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>© 2026 SWAPNIL PINGALE AND ASSOCIATES — Your Trusted Health & Life Insurance Partner, Pune</p>
+    <p style="margin-top: 8px; font-size: 0.8rem;">📍 Chandan Nagar, Next to AADESH GRAPHICS, Pune | 📞 +91 99221 27600 | ✉️ Pingale.swapnil155@gmail.com</p>
+    <p style="margin-top: 6px; font-size: 0.75rem;">Insurance is a subject matter of solicitation. Please read policy documents carefully. | Partners: Care, Manipal Cigna, ICICI Lombard (Health) | BAJAJ LIFE, LIC (Life)</p>
+  </div>
+</footer>
+
+<!-- JS for form submission + dynamic WhatsApp integration -->
+<script>
+  (function() {
+    const form = document.getElementById('advisorForm');
+    const feedback = document.getElementById('formFeedback');
+    const whatsappNumber = "919922127600";  // provided mobile number
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !phone) {
+        feedback.style.color = '#c0392b';
+        feedback.innerText = '❌ Please enter your name and mobile number.';
+        return;
+      }
+      if (phone.length < 10) {
+        feedback.style.color = '#c0392b';
+        feedback.innerText = '❌ Please enter a valid 10-digit mobile number.';
+        return;
+      }
+
+      // Success simulation
+      feedback.style.color = '#1e6f3f';
+      feedback.innerText = '✅ Thank you ' + name + '! Swapnil Pingale & Associates will contact you shortly with best insurance options.';
+
+      // Build WhatsApp message with user details
+      const combinedMsg = `Hi, I'm ${name} (${phone}). I'm looking for insurance guidance. ${message ? 'Message: ' + message.substring(0, 120) : 'Interested in Health/Life Insurance plans from Care, Manipal Cigna, ICICI Lombard, BAJAJ LIFE or LIC.'} - via website contact form.`;
+      const waLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(combinedMsg)}`;
+      
+      let extraDiv = document.getElementById('waExtra');
+      if (!extraDiv) {
+        extraDiv = document.createElement('div');
+        extraDiv.id = 'waExtra';
+        extraDiv.style.marginTop = '12px';
+        extraDiv.style.textAlign = 'center';
+        feedback.parentNode.appendChild(extraDiv);
+      }
+      extraDiv.innerHTML = `<p style="background:#e9f5ef; padding:10px; border-radius:30px;">👉 <a href="${waLink}" target="_blank" style="color:#1e6f3f; font-weight:600;">Click here to chat on WhatsApp now</a> for faster response & premium calculation.</p>`;
+      
+      // reset form fields
+      form.reset();
+      setTimeout(() => {
+        feedback.innerText = '';
+        if(extraDiv) extraDiv.style.display = 'none';
+        setTimeout(() => { if(extraDiv) extraDiv.style.display = 'block'; extraDiv.innerHTML = ''; }, 1000);
+      }, 7000);
+    });
+  })();
+</script>
+
+<!-- Smooth scrolling for anchor links -->
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === "#" || href === "") return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
+```
